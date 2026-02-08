@@ -5,7 +5,7 @@
 
 ## Демонстрация
 
-[![Демо приложения](https://img.youtube.com/vi/rk3wdP56SnA/maxresdefault.jpg)]([https://www.youtube.com/watch?v=YOUR_VIDEO_ID](https://www.youtube.com/watch?v=rk3wdP56SnA))
+[![Демо приложения](https://img.youtube.com/vi/rk3wdP56SnA/maxresdefault.jpg)](https://www.youtube.com/watch?v=rk3wdP56SnA)
 *Просматривайте на `х2`*
 ## Технологии
 
