@@ -1,0 +1,10 @@
+<div class="post-footer" th:fragment="footer">
+    <div class="post-actions">
+        <div class="post-actions">
+                    <span class="reaction reaction-like like" th:data-post-id="${post.id}">
+                        <img th:src="@{/icons/heart.svg}" class="btn-reaction like-icon" alt="">
+                        <p class="like-count" th:text="${post.likesCount}"></p>
+                    </span>
+        </div>
+    </div>
+</div>

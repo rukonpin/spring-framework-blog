@@ -1,0 +1,37 @@
+<section class="pagination" th:fragment="pagination"
+         th:data-page="${currentPage}"
+         th:data-total="${totalPages}"
+         th:data-size="${size}">
+    <div class="pagination-left">
+        <label>
+            Постов на странице
+            <div class="select-wrapper" id="pageSizeSelect">
+                <div class="selected-value" th:text="${size}">5</div>
+                <img th:src="@{/icons/arrow.svg}" alt="" class="arrow"/>
+                <ul class="options-list" style="display: none;">
+                    <li data-value="5">5</li>
+                    <li data-value="10">10</li>
+                    <li data-value="20">20</li>
+                </ul>
+            </div>
+        </label>
+    </div>
+
+    <div class="pagination-right">
+        <button class="page-btn arrow-btn" data-page="prev">
+            <img th:src="@{/icons/left.svg}" alt="" class="left"/>
+        </button>
+
+        <ul class="page-list">
+            <li th:each="p : ${#numbers.sequence(0, totalPages - 1)}"
+                th:classappend="${p == currentPage} ? 'active'"
+                th:data-page="${p}"
+                th:text="${p + 1}">
+            </li>
+        </ul>
+
+        <button class="page-btn arrow-btn" data-page="next">
+            <img th:src="@{/icons/right.svg}" alt="" class="right"/>
+        </button>
+    </div>
+</section>

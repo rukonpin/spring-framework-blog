@@ -1,0 +1,34 @@
+<article class="post-card" th:fragment="postCard(post)">
+    <div class="post-content">
+        <div class="post-tags">
+                    <span class="post-tag" th:each="tag : ${post.tags}">
+                        <img th:src="@{${tag.iconSvg}}" alt="" />
+                        <span th:text="${tag.name}"></span>
+                    </span>
+        </div>
+
+        <h2 class="post-title">
+            <a th:href="@{/posts/{id}(id=${post.id})}" th:text="${post.title}"></a>
+        </h2>
+
+        <p class="post-preview" data-max-length="215" th:text="${post.preview}"></p>
+    </div>
+
+    <div class="post-image">
+        <img class="image" th:src="@{${post.imagePath}}" alt="postImage">
+    </div>
+
+
+    <div class="post-footer">
+        <div class="post-actions">
+                    <span class="reaction reaction-like like" th:data-post-id="${post.id}">
+                        <img th:src="@{/icons/heart.svg}" class="btn-reaction like-icon" alt="">
+                        <p class="like-count" th:text="${post.likesCount}"></p>
+                    </span>
+            <span class="reaction">
+                        <img th:src="@{/icons/comment.svg}" class="btn-reaction" alt="">
+                        <p th:text="${post.commentsCount}"></p>
+                    </span>
+        </div>
+    </div>
+</article>

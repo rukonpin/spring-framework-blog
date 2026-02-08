@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head th:replace="~{layout/head :: head(${post.title})}"></head>
+
+<body>
+
+<div th:replace="~{layout/header :: header}"></div>
+
+<main class="container post-page">
+
+    <div th:replace="~{fragments/post-header :: header}"></div>
+
+    <div class="post-page__image">
+        <img class="image-post" th:src="@{${post.imagePath}}" alt="postImage">
+    </div>
+
+    <div th:replace="~{fragments/post-content :: content}"></div>
+
+    <div th:replace="~{fragments/post-footer :: footer}"></div>
+
+    <section class="comments">
+        <div th:replace="~{fragments/post-comment :: comment}"></div>
+    </section>
+
+</main>
+
+
+<div th:replace="~{layout/footer :: footer}"></div>
+
+<div th:replace="~{fragments/post-modal :: createPostModal}"></div>
+<div th:replace="~{fragments/post-modal-edit :: editPostModal}"></div>
+
+</body>
+</html>
+
+

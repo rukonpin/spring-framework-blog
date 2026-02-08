@@ -1,0 +1,80 @@
+<div class="modal" id="createPostModal" th:fragment="createPostModal">
+
+    <div class="modal__overlay"></div>
+
+    <form th:action="@{/posts/add}" method="post"
+          th:object="${createPostForm}"
+          enctype="multipart/form-data"
+          class="modal__content">
+
+        <h2 class="modal__title">Создать новый пост</h2>
+
+        <div class="modal__group">
+            <label>Название поста</label>
+            <input type="text"
+                   th:field="*{title}"
+                   placeholder="Введите название"
+                   required>
+        </div>
+
+        <div class="modal__group">
+            <label>Добавьте категорию</label>
+            <div class="modal__tags" >
+                <button type="button"
+                        class="tag__form"
+                        th:each="tag : ${allTags}"
+                        th:data-id="${tag.id}"
+                        th:attr="data-name=${tag.name}, data-icon=${tag.iconSvg}">
+                    <img th:src="@{${tag.iconSvg}}" alt="" />
+                    <span th:text="${tag.name}"></span>
+                </button>
+
+                <div id="selectedTagsContainer"></div>
+            </div>
+        </div>
+
+        <div class="modal__group">
+            <label>Описание</label>
+            <textarea th:field="*{content}"
+                      placeholder="Напишите что-нибудь..."
+                      required>
+
+            </textarea>
+        </div>
+
+        <div class="modal__upload">
+            <input type="file"
+                   th:field="*{image}"
+                   id="create-image"
+                   accept="image/*"
+                   style="display: none;"
+                   onchange="previewImageCommon(event, '#createPreviewImg', '#createImagePreview')">
+
+            <label for="create-image" class="upload-label">
+                <img th:src="@{/icons/file-added.svg}" alt="" class="icon__upload" />
+                <span>Загрузить изображение поста</span>
+                <small>JPG, PNG. Макс. 20 МБ</small>
+            </label>
+
+            <div id="createImagePreview" class="image-preview" style="display: none;">
+                <img id="createPreviewImg"
+                     src=""
+                     alt="Превью изображения"
+                     style="max-width: 10%; max-height: 20px;" />
+
+                <button type="button"
+                        class="remove-image-btn"
+                        onclick="removeImageCommon('#createPostModal')">
+                    ×
+                </button>
+            </div>
+        </div>
+
+        <div class="modal__actions">
+            <button type="button" class="btn btn-secondary" id="closeModal">Закрыть</button>
+            <button class="btn btn-primary" type="submit">Опубликовать</button>
+        </div>
+
+    </form>
+
+</div>

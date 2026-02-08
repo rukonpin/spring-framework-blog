@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head th:replace="~{layout/head :: head('Страница не найдена')}"></head>
+
+<body>
+
+
+<main class="error">
+
+    <div class="error-image">
+        <img class="image" th:src="@{/icons/404.svg}" alt="errorImage">
+    </div>
+    <h1>Page not found</h1>
+    <p th:text="${message}">Страница не найдена</p>
+    <a href="/posts" class="btn btn-primary error-btn">
+        На главную
+    </a>
+
+</main>
+
+
+</body>
+</html>

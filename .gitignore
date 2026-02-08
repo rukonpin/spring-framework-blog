@@ -1,0 +1,11 @@
+target/
+.idea/
+.smarttomcat/
+*.iml
+.DS_Store
+Thumbs.db
+*.log
+.env
+*.class
+*.jar
+*.war

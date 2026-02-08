@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head(title)">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title th:text="${title}">Spring Framework Blog</title>
+    <meta name="description" content="Spring Framework Blog">
+
+    <link rel="stylesheet" th:href="@{/styles/styles.css}">
+
+
+    <script th:src="@{/scripts/open-close-modal.js}" defer></script>
+    <script th:src="@{/scripts/preview-image.js}" defer></script>
+    <script th:src="@{/scripts/remove-image.js}" defer></script>
+    <script th:src="@{/scripts/reset-create-modal.js}" defer></script>
+    <script th:src="@{/scripts/likes.js}" defer></script>
+    <script th:src="@{/scripts/comment.js}" defer></script>
+    <script th:src="@{/scripts/selected-posts.js}" defer></script>
+    <script th:src="@{/scripts/pagination.js}" defer></script>
+    <script th:src="@{/scripts/filter.js}" defer></script>
+    <script th:src="@{/scripts/modal-tags.js}" defer></script>
+    <script th:src="@{/scripts/upload.js}" defer></script>
+</head>
+</html>

@@ -1,0 +1,30 @@
+<div th:fragment="header">
+    <a th:href="@{/posts}" class="back-link">
+        <img th:src="@{/icons/arrow-left.svg}" class="arrow-left" alt="">
+        Назад к ленте
+    </a>
+
+    <h1 class="post-page__title" th:text="${post.title}"></h1>
+
+    <div class="post-page__meta">
+        <div class="post-header-tags">
+            <button class="tag" th:each="tag : ${post.tags}">
+                <img th:src="@{${tag.iconSvg}}" alt="" />
+                <span th:text="${tag.name}"></span>
+            </button>
+        </div>
+
+        <div class="post-controls">
+            <button class="btn-edit" data-open="edit-modal">Редактирование</button>
+            <form th:action="@{/posts/{id}(id=${post.id})}" method="post">
+                <button class="btn-trash">
+                    <div class="trash-container">
+                        <img th:src="@{/icons/trashcan.svg}" class="trashcan" alt="">
+                    </div>
+                </button>
+                <input type="hidden" name="_method" value="delete" />
+            </form>
+        </div>
+    </div>
+</div>
+

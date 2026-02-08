@@ -1,0 +1,92 @@
+<div class="modal" id="editPostModal" th:fragment="editPostModal">
+
+    <div class="modal__overlay"></div>
+
+    <form th:action="@{/posts/{id}/edit(id=${post.id})}" method="post"
+          th:object="${editPostForm}"
+          enctype="multipart/form-data"
+          class="modal__content">
+
+        <h2 class="modal__title">Создать новый пост</h2>
+
+        <div class="modal__group">
+            <label>Название поста</label>
+            <input type="text"
+                   th:field="*{title}"
+                   placeholder="Введите название"
+                   required>
+        </div>
+
+        <div class="modal__group">
+            <label>Добавьте категорию</label>
+            <div class="modal__tags" >
+                <button type="button"
+                        class="tag__form"
+                        th:each="tag : ${allTags}"
+                        th:data-id="${tag.id}"
+                        th:attr="data-name=${tag.name}, data-icon=${tag.iconSvg}">
+                    <img th:src="@{${tag.iconSvg}}" alt="" />
+                    <span th:text="${tag.name}"></span>
+                </button>
+
+                <div id="selectedTagsContainer"></div>
+            </div>
+        </div>
+
+        <div class="modal__group">
+            <label>Описание</label>
+            <textarea th:field="*{content}"
+                      placeholder="Напишите что-нибудь..."
+                      required>
+
+            </textarea>
+        </div>
+
+        <div class="modal__upload">
+            <input type="file"
+                   id="edit-image"
+                   name="image"
+                   th:field="*{image}"
+                   accept="image/*"
+                   style="display: none;"
+                   onchange="previewImageCommon(event, '#editPreviewImg', '#editImagePreview')">
+
+            <label for="edit-image" class="upload-label">
+                <img th:src="@{/icons/file-added.svg}" alt="" class="icon__upload" />
+                <span>Загрузить изображение поста</span>
+                <small>JPG, PNG. Макс. 20 МБ</small>
+            </label>
+
+            <div class="current-image-edit" th:if="${post.imagePath != null}">
+                <img th:src="@{${post.imagePath}}" alt="Текущее изображение"
+                     style="max-width: 100px;">
+            </div>
+
+            <div id="editImagePreview" class="image-preview-edit" style="display: none;">
+                <img id="editPreviewImg"
+                     src=""
+                     alt="Превью изображения"
+                     style="max-width: 10%; max-height: 20px;" />
+
+                <button type="button"
+                        class="remove-image-btn"
+                        onclick="removeImageCommon('#editPostModal')">
+                    ×
+                </button>
+
+
+            </div>
+
+
+
+
+        </div>
+
+        <div class="modal__actions">
+            <button type="button" class="btn btn-secondary" id="closeModal">Закрыть</button>
+            <button class="btn btn-primary" type="submit">Опубликовать</button>
+        </div>
+
+    </form>
+
+</div>

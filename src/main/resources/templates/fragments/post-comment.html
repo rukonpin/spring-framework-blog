@@ -1,0 +1,39 @@
+<div th:fragment="comment">
+    <h3>Комментарии <span id="commentsCount" th:text="${countComments}"></span></h3>
+
+    <form id="commentForm" th:data-post-id="${post.id}">
+
+        <div class="comment-form">
+            <textarea id="commentContent"
+                      placeholder="Напишите что-нибудь..."
+                      required></textarea>
+            <button type="submit" class="btn btn-primary send">Отправить</button>
+        </div>
+
+    </form>
+
+
+    <div id="commentsContainer">
+        <div class="comment"
+             th:each="comment : ${comments}"
+             th:data-comment-id="${comment.id}">
+
+            <img th:src="@{${comment.imagePath}}" class="comment__avatar" alt="">
+            <div>
+                <div class="comment__header">
+                    <p class="comment__text" th:text="${comment.name}"></p>
+                    <span class="comment__date" th:text="${comment.createdAt}">•</span>
+                </div>
+                <p class="comment__general" th:text="${comment.content}"></p>
+                <div class="comment__actions">
+                    <img th:src="@{/icons/pencil.svg}" class="comment__edit" alt="">
+                    <a class="edit-comment">Редактирование</a>
+                    <img th:src="@{/icons/trashcomment.svg}" class="comment__trash" alt="">
+                    <a class="delete-comment">Удалить</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+

@@ -1,0 +1,14 @@
+<header class="header" th:fragment="header">
+    <div class="header__inner">
+        <div class="logo">
+            <img th:src="@{/icons/github.svg}" alt="GitHub" class="logo__icon" />
+            <span class="logo_two">/</span>
+            <span>rukonpin</span>
+        </div>
+
+        <button class="btn btn-primary" data-open="create-modal">
+            <img th:src="@{/icons/plus-circle.svg}" alt="" class="btn-icon"  />
+            Новый пост
+        </button>
+    </div>
+</header>

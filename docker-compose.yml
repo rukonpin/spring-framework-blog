@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: blog-postgres
+    environment:
+      POSTGRES_DB: blog
+      POSTGRES_USER: blog
+      POSTGRES_PASSWORD: blog
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  app:
+    build: .
+    container_name: blog-app
+    depends_on:
+      - postgres
+    environment:
+      JAVA_OPTS: "-Dspring.profiles.active=docker"
+    ports:
+      - "8080:8080"
+
+volumes:
+  pgdata:

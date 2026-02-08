@@ -1,0 +1,16 @@
+<section class="page-title" th:fragment="categories">
+    <h1>Лента новостей</h1>
+    <p class="subtitle">Категории новостей</p>
+
+    <div class="tags">
+        <button class="tag"
+                th:each="tag : ${tags}"
+                th:attr="data-tag=${tag.name}"
+                th:classappend="${param.categories != null and tag.name == param.categories[0]} ? 'active'"
+                type="button">
+            <img th:src="@{${tag.iconSvg}}" alt="" />
+            <span th:text="${tag.name}"></span>
+        </button>
+    </div>
+
+</section>
