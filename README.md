@@ -52,7 +52,7 @@
 1. Клонируйте репозиторий:
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/rukonpin/spring-framework-blog.git
 cd spring-framework-blog
 ```
 
