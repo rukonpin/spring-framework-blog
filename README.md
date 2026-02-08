@@ -94,6 +94,8 @@ mvn test
 
 ### Структура тестов
 
+*В проекте умышленно не было реализовано 100% покрытие*
+
 - **Integration Tests** (`PostRepositoryImplIT`, `CommentRepositoryImplIT`) — тестирование слоя репозиториев с реальной БД (H2)
 - **Unit Tests** (`PostServiceImplTest`, `CommentServiceImplTest`) — тестирование бизнес-логики с моками
 
@@ -208,6 +210,7 @@ CMD ["catalina.sh", "run"]
 - [ ] Внедрить кэширование (Spring Cache)
 - [ ] Добавить валидацию
 - [ ] Реализовать добавление кастомных тегов
+- [ ] Реализовать 100% покрытие тестами
 
 ## Автор
 
