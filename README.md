@@ -1,5 +1,8 @@
 # spring-framework-blog
 
+> [!CAUTION]
+> Актуальный проект — [online-store](https://github.com/rukonpin/online-store)
+
 
 Веб-приложение блога на чистом Spring Framework (без Spring Boot) с поддержкой постов, комментариев, тегов и системой лайков.
 
